@@ -7,7 +7,7 @@ module.exports = {
      * @param {import("discord.js").Interaction} interaction 
      */
     run: async (client, interaction) => {
-        if (interaction.isCommand()) {
+        if (interaction.isCommand() || interaction.isMessageContextMenuCommand()) {
             const cmd = client.commands.get(interaction.commandName);
 
             if (cmd?.admin && !interaction.member.permissions.has(PermissionFlagsBits.Administrator)) {
