@@ -1,4 +1,5 @@
 const { Client } = require("discord.js");
+const meme = require("../task/meme");
 
 module.exports = {
     name: 'ready',
@@ -13,5 +14,9 @@ module.exports = {
                 return r.info
             }));
         })
+
+        setInterval(() => {
+            meme(client);
+        }, 60 * 1000 * 60 * 3)
     }
 }
